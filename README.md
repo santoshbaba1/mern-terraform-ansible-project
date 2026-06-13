@@ -534,7 +534,8 @@ The following screenshots are included in the repository:
 
 ## Author
 
-Sanhosh Kumar Sharma
+Sanhosh Kumar Sharma (12394)
+DevOps & Cloud Enthusiast
 
 Project:
 MERN Application Deployment on AWS using Terraform and Ansible
