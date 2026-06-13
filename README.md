@@ -87,7 +87,7 @@ Repository Used:
 project/
 │
 ├── terraform/
-│   ├── provider.tf
+│   ├── providers.tf
 │   ├── variables.tf
 │   ├── main.tf
 │   ├── outputs.tf
@@ -97,7 +97,13 @@ project/
 │   ├── inventory.ini
 │   ├── web.yml
 │   ├── db.yml
-│   └── templates/
+│   └── dbuser.yml
+│   └── env.yml
+│   └── nginx-ssl.yml
+│
+├── travel-memory/
+│   ├── backend
+│   ├── frontend
 │
 ├── screenshots/
 │
@@ -218,6 +224,8 @@ Configure AWS CLI
 ```bash
 aws configure
 ```
+ - <img width="1347" height="409" alt="awscli 5" src="https://github.com/user-attachments/assets/15ce4c10-4f3e-4843-94f0-7c7b23a35efd" />
+
 
 ### Step 2
 
@@ -226,6 +234,9 @@ Initialize Terraform
 ```bash
 terraform init
 ```
+ - <img width="1364" height="722" alt="terr init" src="https://github.com/user-attachments/assets/577d52c5-e0f8-43e3-a9b7-40dd74d42f50" />
+
+ - <img width="1887" height="878" alt="tera init" src="https://github.com/user-attachments/assets/e4cba286-9728-474f-bdeb-1fc46d0272fd" />
 
 ### Step 3
 
@@ -234,6 +245,10 @@ Validate Configuration
 ```bash
 terraform validate
 ```
+ - <img width="1362" height="727" alt="terr valitae" src="https://github.com/user-attachments/assets/89f78b59-9e5b-4dfe-a7db-a161eead91d3" />
+
+ - <img width="1892" height="166" alt="tera vali" src="https://github.com/user-attachments/assets/8d03cead-a63d-4d53-b3b8-5c6fb5d8089e" />
+
 
 ### Step 4
 
@@ -242,6 +257,11 @@ Review Infrastructure Plan
 ```bash
 terraform plan
 ```
+ - <img width="1365" height="723" alt="terr plan" src="https://github.com/user-attachments/assets/42d63045-e2b8-4f07-8016-1d3962d45680" />
+
+ 
+- <img width="1892" height="701" alt="tera app-1" src="https://github.com/user-attachments/assets/fa11ddef-63c7-4e16-9add-97e9a557d262" />
+
 
 ### Step 5
 
@@ -250,6 +270,8 @@ Deploy Infrastructure
 ```bash
 terraform apply -auto-approve
 ```
+ - <img width="1364" height="721" alt="terra depl" src="https://github.com/user-attachments/assets/144f8359-6b1b-404d-89cc-c2414733efa5" />
+
 
 ### Step 6
 
@@ -279,6 +301,7 @@ Run Database Configuration
 ansible-playbook -i inventory.ini db.yml
 ```
 
+
 ### Step 9
 
 Run Web Server Configuration
@@ -286,6 +309,10 @@ Run Web Server Configuration
 ```bash
 ansible-playbook -i inventory.ini web.yml
 ```
+ - <img width="1345" height="718" alt="ans web 1" src="https://github.com/user-attachments/assets/2368fcf5-1aee-4c2c-b6b6-a9830c2b0828" />
+
+ - <img width="1348" height="717" alt="ngix 1" src="https://github.com/user-attachments/assets/d0fb3123-a701-4d3b-85a1-55142c93e7fe" />
+
 
 ### Step 10
 
@@ -294,7 +321,7 @@ Verify Application
 Open:
 
 ```text
-http://<web-server-public-ip>
+https://graphtech.live, https://www.graphtech.live
 ```
 
 ---
@@ -308,6 +335,9 @@ http://<web-server-public-ip>
 - Security Group Rules
 - IAM Roles with Least Privilege
 - NAT Gateway for private resources
+ - <img width="1309" height="629" alt="iam permission" src="https://github.com/user-attachments/assets/8a178ecd-a299-4391-a1e3-86c0b6cbb7e7" />
+
+
 
 ### Server Hardening
 
@@ -493,6 +523,7 @@ The following screenshots are included in the repository:
 ### Web Server
 
 - NGINX
+- 
 
 ### Version Control
 
@@ -503,16 +534,11 @@ The following screenshots are included in the repository:
 
 ## Author
 
-Name: Santhosh Sharma
+Sanhosh Kumar Sharma (12394)
+
+DevOps & Cloud Enthusiast
 
 Project:
 MERN Application Deployment on AWS using Terraform and Ansible
 
 ---
-
-## Repository Link
-
-GitHub Repository:
-
-https://github.com/<your-github-username>/<repository-name>
-
