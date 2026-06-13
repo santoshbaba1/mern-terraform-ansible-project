@@ -291,6 +291,7 @@ Run Database Configuration
 ansible-playbook -i inventory.ini db.yml
 ```
 
+
 ### Step 9
 
 Run Web Server Configuration
@@ -298,6 +299,10 @@ Run Web Server Configuration
 ```bash
 ansible-playbook -i inventory.ini web.yml
 ```
+ - <img width="1345" height="718" alt="ans web 1" src="https://github.com/user-attachments/assets/2368fcf5-1aee-4c2c-b6b6-a9830c2b0828" />
+
+ - <img width="1348" height="717" alt="ngix 1" src="https://github.com/user-attachments/assets/d0fb3123-a701-4d3b-85a1-55142c93e7fe" />
+
 
 ### Step 10
 
@@ -306,7 +311,7 @@ Verify Application
 Open:
 
 ```text
-http://<web-server-public-ip>
+https://graphtech.live, https://www.graphtech.live
 ```
 
 ---
@@ -320,6 +325,9 @@ http://<web-server-public-ip>
 - Security Group Rules
 - IAM Roles with Least Privilege
 - NAT Gateway for private resources
+ - <img width="1309" height="629" alt="iam permission" src="https://github.com/user-attachments/assets/8a178ecd-a299-4391-a1e3-86c0b6cbb7e7" />
+
+
 
 ### Server Hardening
 
