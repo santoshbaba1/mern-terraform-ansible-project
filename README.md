@@ -87,7 +87,7 @@ Repository Used:
 project/
 │
 ├── terraform/
-│   ├── provider.tf
+│   ├── providers.tf
 │   ├── variables.tf
 │   ├── main.tf
 │   ├── outputs.tf
@@ -97,7 +97,9 @@ project/
 │   ├── inventory.ini
 │   ├── web.yml
 │   ├── db.yml
-│   └── templates/
+│   └── dbuser.yml
+│   └── env.yml
+│   └── nginx-ssl.yml
 │
 ├── screenshots/
 │
