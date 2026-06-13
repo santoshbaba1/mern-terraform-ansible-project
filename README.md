@@ -542,10 +542,3 @@ Project:
 MERN Application Deployment on AWS using Terraform and Ansible
 
 ---
-
-## Repository Link
-
-GitHub Repository:
-
-https://github.com/<your-github-username>/<repository-name>
-
