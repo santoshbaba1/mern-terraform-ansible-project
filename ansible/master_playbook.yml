@@ -1,0 +1,15 @@
+---
+- name: Web Server Installations
+  import_playbook: web.yml
+
+- name: Environment Setup
+  import_playbook: env.yml
+
+- name: Nginx-ssl Installation
+  import_playbook: nginx_ssl.yml
+
+- name: Database Server Installation
+  import_playbook: db.yml
+
+- name: Database User Creation
+  import_playbook: dbuser.yml
