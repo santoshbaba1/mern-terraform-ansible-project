@@ -230,6 +230,8 @@ Initialize Terraform
 ```bash
 terraform init
 ```
+ - <img width="1364" height="722" alt="terr init" src="https://github.com/user-attachments/assets/577d52c5-e0f8-43e3-a9b7-40dd74d42f50" />
+
 
 ### Step 3
 
@@ -238,6 +240,8 @@ Validate Configuration
 ```bash
 terraform validate
 ```
+ - <img width="1362" height="727" alt="terr valitae" src="https://github.com/user-attachments/assets/89f78b59-9e5b-4dfe-a7db-a161eead91d3" />
+
 
 ### Step 4
 
@@ -246,6 +250,8 @@ Review Infrastructure Plan
 ```bash
 terraform plan
 ```
+ - <img width="1365" height="723" alt="terr plan" src="https://github.com/user-attachments/assets/42d63045-e2b8-4f07-8016-1d3962d45680" />
+
 
 ### Step 5
 
@@ -254,6 +260,8 @@ Deploy Infrastructure
 ```bash
 terraform apply -auto-approve
 ```
+ - <img width="1364" height="721" alt="terra depl" src="https://github.com/user-attachments/assets/144f8359-6b1b-404d-89cc-c2414733efa5" />
+
 
 ### Step 6
 
@@ -507,7 +515,7 @@ The following screenshots are included in the repository:
 
 ## Author
 
-Name: Santhosh Sharma
+Sanhosh Kumar Sharma
 
 Project:
 MERN Application Deployment on AWS using Terraform and Ansible
