@@ -220,6 +220,8 @@ Configure AWS CLI
 ```bash
 aws configure
 ```
+ - <img width="1347" height="409" alt="awscli 5" src="https://github.com/user-attachments/assets/15ce4c10-4f3e-4843-94f0-7c7b23a35efd" />
+
 
 ### Step 2
 
