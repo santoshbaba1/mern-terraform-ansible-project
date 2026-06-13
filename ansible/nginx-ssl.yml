@@ -1,0 +1,91 @@
+---
+- name: Install Nginx and SSL Certificate
+  hosts: web
+  become: yes
+
+  vars:
+    domain_name: graphtech.live
+    email: admin@graphtech.live
+
+  tasks:
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Install Certbot packages
+      apt:
+        name:
+          - certbot
+          - python3-certbot-nginx
+        state: present
+
+    - name: Create Nginx site configuration
+      copy:
+        dest: /etc/nginx/sites-available/travelmemory
+        content: |
+          server {
+              listen 80;
+              server_name graphtech.live www.graphtech.live;
+
+              location / {
+                  proxy_pass http://localhost:3000;
+                  proxy_http_version 1.1;
+                  proxy_set_header Upgrade $http_upgrade;
+                  proxy_set_header Connection "upgrade";
+                  proxy_set_header Host $host;
+                  proxy_cache_bypass $http_upgrade;
+                  proxy_set_header X-Real-IP $remote_addr;
+                  proxy_cache_bypass $http_upgrade;
+              }
+
+              location /trip {
+                  proxy_pass http://localhost:3001;
+                  proxy_http_version 1.1;
+                  proxy_set_header Host $host;
+                  proxy_set_header X-Real-IP $remote_addr;
+                  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              }
+          }
+
+    - name: Enable Nginx site
+      file:
+        src: /etc/nginx/sites-available/travelmemory
+        dest: /etc/nginx/sites-enabled/travelmemory
+        state: link
+
+    - name: Remove default site
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+
+    - name: Test Nginx configuration
+      command: nginx -t
+
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
+
+    - name: Generate SSL certificate
+      command: >
+        certbot --nginx
+        -d graphtech.live
+        -d www.graphtech.live
+        --non-interactive
+        --agree-tos
+        --email {{ email }}
+        --redirect
+      args:
+        creates: /etc/letsencrypt/live/graphtech.live/fullchain.pem
+
+    - name: Enable Certbot auto-renewal
+      systemd:
+        name: certbot.timer
+        enabled: yes
+        state: started

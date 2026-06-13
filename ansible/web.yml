@@ -1,0 +1,32 @@
+---
+- hosts: web
+  become: yes
+
+  tasks:
+
+    - name: Install packages
+      apt:
+        name:
+          - git
+          - curl
+        update_cache: yes
+
+    - name: Install Node.js
+      shell: |
+        curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+        apt install -y nodejs
+
+    - name: Clone repository
+      git:
+        repo: 'https://github.com/UnpredictablePrashant/TravelMemory.git'
+        dest: /opt/travelmemory
+
+    - name: Install backend dependencies
+      shell: |
+        cd /opt/travelmemory/backend
+        npm install
+
+    - name: Install frontend dependencies
+      shell: |
+        cd /opt/travelmemory/frontend
+        npm install

@@ -1,0 +1,28 @@
+---
+- name: Create MongoDB Database and User
+  hosts: db
+  become: yes
+
+  tasks:
+
+    - name: Create MongoDB user and database
+      shell: |
+        mongosh <<EOF
+        use travelmemory
+
+        db.createUser({
+          user: "santosharma",
+          pwd: "2TNVQJuGsJvRy0pT",
+          roles: [
+            {
+              role: "readWrite",
+              db: "travelmemory"
+            }
+          ]
+        })
+        EOF
+      register: mongodb_user
+
+    - name: Display MongoDB output
+      debug:
+        var: mongodb_user.stdout_lines
